@@ -64,7 +64,7 @@ public class ScrabbleGame {
         }
     }
     private static void validatingPlayedWord() {
-        System.out.println("Enter (Y) if both Playes Agree on the Word or Enter Any Key to Disagree");
+        System.out.println("Enter (Y) if Both Playes Agree on the Word or Enter Any Key to Disagree");
         String input2 = scan.next();
         if (input2.equalsIgnoreCase("y")) {
             usedLetterSearch();
