@@ -1,0 +1,11 @@
+package AracKiralamaProjesi;
+
+import static AracKiralamaProjesi.MusteriVeAracBilgisi.*;
+
+public class Runner {
+    public static void main(String[] args) {
+        menu();
+
+
+    }
+}
