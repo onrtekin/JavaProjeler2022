@@ -217,7 +217,7 @@ public class MusteriVeAracBilgisi extends Arac{
                 } catch (InterruptedException e) {
                 }
             }
-            odemeler();
+            odemeler(aracSecim);
         }else{
             System.out.println("Ana Menuye Aktariliyorsunuz Lutfen Bekleyiniz");
             for (int i = 0; i <4 ; i++) {
@@ -232,8 +232,130 @@ public class MusteriVeAracBilgisi extends Arac{
 
     }
 
-    private static void odemeler() {
+    private static void odemeler(int aracSecim) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("************Odemeler Menusu***************");
+        System.out.print("1-Nakit\n2-Kredi Karti\n3-Ana Menu\nLutfen Odeme Yapmak istediginiz Secenegi Seciniz : ");
+        double odeme=scan.nextDouble();
 
+        if(odeme==1){
+            System.out.println("Odeyeceginiz Tutar : "+kiralanacakGunSayisi*aracTalepListesi.get(aracSecim-1).getGunlukUcret());
+            System.out.print("Nakit Tutarini Giriniz : ");
+            double nakit= scan.nextDouble();
+            System.out.println("Yatirdiginiz Tutar Hesaplaniyor Lutfen Bekleyiniz");
+            System.out.println();
+            for (int i = 0; i <4 ; i++) {
+                System.out.print(".");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                }
+            }
+            System.out.println();
+
+            if(nakit>(kiralanacakGunSayisi*aracTalepListesi.get(aracSecim-1).getGunlukUcret())){
+                System.out.println("Yatirdiginiz Tutar : "+nakit);
+                System.out.println("Odemeniz Yapiliyor Lutfen Bekleyiniz");
+                System.out.println();
+                for (int i = 0; i <4 ; i++) {
+                    System.out.print(".");
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                System.out.println();
+
+                System.out.println("Para Ustu : "+(nakit-(kiralanacakGunSayisi*aracTalepListesi.get(aracSecim-1).getGunlukUcret())));
+                System.out.println("Lutfen Paranizi Aliniz");
+                System.out.println("Iyı Gunler....");
+            }else if(nakit==(kiralanacakGunSayisi*aracTalepListesi.get(aracSecim-1).getGunlukUcret())){
+                System.out.println("Yatirdiginiz Tutar : "+nakit);
+                System.out.println("Odemeniz Yapiliyor Lutfen Bekleyiniz");
+                System.out.println();
+                for (int i = 0; i <4 ; i++) {
+                    System.out.print(".");
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                System.out.println();
+                System.out.println("Odeme Gerceklesti");
+                System.out.println("Iyı Gunler....");
+
+            }else if(nakit<(kiralanacakGunSayisi*aracTalepListesi.get(aracSecim-1).getGunlukUcret())){
+                System.out.println("Yatirdiginiz Tutar  : "+((kiralanacakGunSayisi*aracTalepListesi.get(aracSecim-1).getGunlukUcret())
+                -nakit)+" Tl eksik");
+                System.out.println("Lutfen Tekrar Deneyiniz");
+                System.out.println("Odemeler Menusune Aktariliyorsunuz Lutfen Bekleyiniz");
+                for (int i = 0; i <4 ; i++) {
+                    System.out.print(".");
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                odemeler(aracSecim);
+
+            }
+
+        }else if(odeme==2){
+            System.out.println("Odeyeceginiz Tutar : "+kiralanacakGunSayisi*aracTalepListesi.get(aracSecim-1).getGunlukUcret());
+            System.out.print("Lutfen 16 haneli Kredi Karti Numaranizi Giriniz :  ");
+            String kKNo=scan.next();
+            if(kKNo.length()==16){
+                System.out.print("Lutfen Sirenizi Giriniz : ");
+                String sifre=scan.next();
+                System.out.println("Odemeniz Gerceklesiyor Lutfen Bekleyiniz");
+                for (int i = 0; i <4 ; i++) {
+                    System.out.print(".");
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                System.out.println();
+                System.out.println("Odemeniz Gerceklesti");
+                System.out.println("Iyı Gunler Dileriz.....");
+            }else{
+                System.out.println("Girdiginiz Kredi Karti No Gecersiz");
+                System.out.println("Lutfen Tekrar Deneyiniz");
+                System.out.println("Odemeler Menusune Aktariliyorsunuz Lutfen Bekleyiniz");
+                for (int i = 0; i <4 ; i++) {
+                    System.out.print(".");
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                odemeler(aracSecim);
+
+            }
+
+        }else if(odeme==3){
+            System.out.println("Ana Menuye Aktariliyorsunuz Lutfe Bekleyiniz ");
+            for (int i = 0; i <4 ; i++) {
+                System.out.print(".");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                }
+            }
+            menu();
+
+        }else{
+            System.out.println("Hatali Giris Yaptiniz");
+            System.out.println("Odemeler Menusune Aktariliyorsunuz Lutfen Bekleyiniz");
+            for (int i = 0; i <4 ; i++) {
+                System.out.print(".");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                }
+            }
+            odemeler(aracSecim);
+        }
     }
 
 
