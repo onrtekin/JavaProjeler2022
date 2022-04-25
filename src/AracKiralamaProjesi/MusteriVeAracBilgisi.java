@@ -46,13 +46,13 @@ public class MusteriVeAracBilgisi extends Arac{
         String teslimGunu= scan.next();
         String aGun=alisGun.substring(0,2);
         int intAGun=Integer.parseInt(aGun);
-        String aAy=alisGun.substring(4);
+        String aAy=alisGun.substring(3);
         int intAAy=Integer.parseInt(aAy);
         System.out.println("Alis Tarihi : "+intAAy+". ayin "+intAGun+". gunu");
 
         String tGun=teslimGunu.substring(0,2);
         int intTGun=Integer.parseInt(tGun);
-        String tAy=teslimGunu.substring(4);
+        String tAy=teslimGunu.substring(3);
         int intTAy=Integer.parseInt(tAy);
         System.out.println("Teslim Tarihi : "+intTAy+". ayin "+intTGun+". gunu");
 
